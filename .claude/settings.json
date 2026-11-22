@@ -1,0 +1,121 @@
+{
+  "env": {
+    "GOTOOLCHAIN": "local",
+    "GOPROXY": "off",
+    "GOFLAGS": "-mod=readonly"
+  },
+  "permissions": {
+    "allow": [
+      "Edit(/src/**)",
+      "Bash(scheme *)",
+      "Bash(go *)",
+      "Bash(mise run *)",
+      "Bash(mise tasks *)",
+      "Bash(bin/jscheme *)",
+      "Bash(./bin/jscheme *)",
+
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git show*)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git switch *)",
+      "Bash(git checkout -b *)",
+      "Bash(git merge *)"
+    ],
+    "deny": [
+      "Edit(/spec/**)",
+      "Edit(/tests/**)",
+      "Edit(/README.md)",
+      "Edit(/CLAUDE.md)",
+      "Edit(/.gitignore)",
+      "Edit(/.claude/**)",
+
+      "Edit(/**/*mise*.toml)",
+      "Edit(/**/.tool-versions)",
+      "Edit(/**/.mise/**)",
+      "Edit(/**/mise/**)",
+      "Edit(/**/.config/**)",
+      "Edit(~/.config/mise/**)",
+      "Edit(~/.local/share/mise/**)",
+
+      "Bash(mise use *)",
+      "Bash(mise unuse *)",
+      "Bash(mise install *)",
+      "Bash(mise i *)",
+      "Bash(mise exec *)",
+      "Bash(mise x *)",
+      "Bash(mise shell *)",
+      "Bash(mise settings *)",
+      "Bash(mise config *)",
+      "Bash(mise trust *)",
+      "Bash(mise plugins *)",
+      "Bash(mise upgrade *)",
+      "Bash(mise link *)",
+
+      "Bash(node *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(corepack *)",
+      "Bash(pnpm *)",
+      "Bash(yarn *)",
+      "Bash(bun *)",
+      "Bash(bunx *)",
+      "Bash(deno *)",
+      "Bash(qjs *)",
+
+      "Bash(git *--amend*)",
+      "Bash(git rebase*)",
+      "Bash(git pull*)",
+      "Bash(git reset*)",
+      "Bash(git update-ref*)",
+      "Bash(git filter-branch*)",
+      "Bash(git filter-repo*)",
+      "Bash(git replace*)",
+      "Bash(git branch -f*)",
+      "Bash(git branch * -f*)",
+      "Bash(git branch -D*)",
+      "Bash(git branch * -D*)",
+      "Bash(git branch *--force*)",
+      "Bash(git checkout -B*)",
+      "Bash(git checkout * -B*)",
+      "Bash(git switch -C*)",
+      "Bash(git switch * -C*)",
+      "Bash(git switch *--force-create*)",
+      "Bash(git push*--force*)",
+      "Bash(git push* -f*)",
+      "Bash(git push*+*)",
+      "Bash(git reflog expire*)",
+      "Bash(git reflog delete*)",
+      "Bash(git gc*)",
+      "Bash(git prune*)",
+      "Bash(git config*)",
+      "Bash(git -c *)",
+      "Bash(git *core.hooksPath*)"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "allowWrite": [
+        "~/.cache/go-build"
+      ],
+      "denyWrite": [
+        "/home/clemencon/Development/jscheme/.git/hooks",
+        "/home/clemencon/Development/jscheme/.git/config"
+      ],
+      "denyRead": [
+        "/usr/bin/node",
+        "/usr/lib/node_modules",
+        "~/.local/share/mise/installs/node",
+        "~/.local/share/mise/installs/bun",
+        "~/.local/share/mise/installs/pnpm",
+        "~/.bun",
+        "~/.deno"
+      ]
+    }
+  }
+}
