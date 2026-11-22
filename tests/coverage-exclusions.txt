@@ -1,0 +1,49 @@
+# Sections of spec/ECMA-262_1st_edition_june_1997.md that no test names.
+# One section per line: the number, then the reason. Only editorial sections
+# belong here; internal mechanisms are covered through
+# their observable effects instead. A parent counts as covered once all its
+# children are covered or excluded, so it need not be listed.
+
+1 Scope: describes the document, no behaviour
+3 References: bibliography
+4 Overview: informative introduction
+4.1 Web Scripting: informative
+4.2 Language Overview: informative
+4.2.1 Objects: informative overview of the object model, specified in §8, §10 and §15
+4.3 Definitions: terms, specified normatively where they are used
+4.3.1 Type: definition of a term
+4.3.2 Primitive value: definition of a term
+4.3.3 Object: definition of a term
+4.3.4 Constructor: definition of a term
+4.3.5 Prototype: definition of a term
+4.3.6 Native object: definition of a term
+4.3.7 Built-in object: definition of a term
+4.3.8 Host object: definition of a term
+4.3.9 Undefined: definition of a term
+4.3.10 Undefined type: definition of a term
+4.3.11 Null: definition of a term
+4.3.12 Null type: definition of a term
+4.3.13 Boolean value: definition of a term
+4.3.14 Boolean type: definition of a term
+4.3.15 Boolean object: definition of a term
+4.3.16 String value: definition of a term
+4.3.17 String type: definition of a term
+4.3.18 String object: definition of a term
+4.3.19 Number value: definition of a term
+4.3.20 Number type: definition of a term
+4.3.21 Number object: definition of a term
+4.3.22 Infinity: definition of a term
+4.3.23 NaN: definition of a term
+5 Notational Conventions: how the spec is written
+5.1 Syntactic and Lexical Grammars: grammar notation
+5.1.1 Context-Free Grammars: grammar notation
+5.1.2 The lexical grammar: grammar notation; the grammar itself is tested under §7
+5.1.3 The numeric string grammar: grammar notation; the grammar itself is tested under §9.3.1
+5.1.4 The syntactic grammar: grammar notation; the grammar itself is tested under §11-§14
+5.1.5 Grammar Notation: grammar notation
+5.2 Algorithm conventions: notation for the algorithms, tested through the algorithms that use it
+10.2.4 Implementation-supplied Code: the jscheme host creates no implementation-supplied functions (spec/host-contract.md); print is a host function with no ECMAScript code
+15.9.3.6 new Date(year, month): "The behavior of the Date constructor with two arguments is implementation dependent", and spec/host-contract.md does not pin it down, so nothing can be asserted
+15.9.4.8 Date.UTC(year, month): "The behavior of the UTC function with two arguments is implementation dependent", not pinned down by spec/host-contract.md
+15.9.4.9 Date.UTC(year): "The behavior of the UTC function with one argument is implementation dependent", not pinned down by spec/host-contract.md
+15.9.4.10 Date.UTC(): "The behavior of the UTC function with no arguments is implementation dependent", not pinned down by spec/host-contract.md

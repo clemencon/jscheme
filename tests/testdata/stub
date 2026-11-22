@@ -1,0 +1,4 @@
+#!/bin/sh
+# The stub gate binary: it prints nothing and exits 0,
+# so every test run against it must fail.
+exit 0
