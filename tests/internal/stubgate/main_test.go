@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-const pkg = "jscheme/tests"
+const pkg = "jsrust/tests"
 
 // events turns compact "action test" lines into go test -json output for pkg.
 func events(lines ...string) string {
@@ -52,7 +52,7 @@ func TestRun(t *testing.T) {
 		},
 		{
 			"other packages are ignored",
-			`{"Action":"pass","Package":"jscheme/tests/internal/coverage","Test":"TestX"}` + "\n" +
+			`{"Action":"pass","Package":"jsrust/tests/internal/coverage","Test":"TestX"}` + "\n" +
 				events("run TestA", "fail TestA"),
 			0, []string{"1 leaf tests, all failed"},
 		},

@@ -4,7 +4,7 @@
 //
 // It reads `go test -json` output on stdin:
 //
-//	JSCHEME_BIN=testdata/stub go test -json . | go run ./internal/stubgate
+//	JSRUST_BIN=testdata/stub go test -json . | go run ./internal/stubgate
 package main
 
 import (
@@ -14,11 +14,11 @@ import (
 	"os"
 	"strings"
 
-	"jscheme/tests/internal/testjson"
+	"jsrust/tests/internal/testjson"
 )
 
 func main() {
-	pkg := flag.String("package", "jscheme/tests", "import path of the conformance suite")
+	pkg := flag.String("package", "jsrust/tests", "import path of the conformance suite")
 	flag.Parse()
 	os.Exit(run(os.Stdin, os.Stdout, *pkg))
 }

@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-const pkg = "jscheme/tests"
+const pkg = "jsrust/tests"
 
 const spec = `<!-- pdf-page 1 / printed none -->
 # <a id="sec-1"></a>1 Scope

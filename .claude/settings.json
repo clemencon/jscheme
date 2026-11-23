@@ -2,17 +2,19 @@
   "env": {
     "GOTOOLCHAIN": "local",
     "GOPROXY": "off",
-    "GOFLAGS": "-mod=readonly"
+    "GOFLAGS": "-mod=readonly",
+    "CARGO_NET_OFFLINE": "true"
   },
   "permissions": {
     "allow": [
       "Edit(/src/**)",
-      "Bash(scheme *)",
+      "Bash(cargo *)",
+      "Bash(rustc *)",
       "Bash(go *)",
       "Bash(mise run *)",
       "Bash(mise tasks *)",
-      "Bash(bin/jscheme *)",
-      "Bash(./bin/jscheme *)",
+      "Bash(bin/jsrust *)",
+      "Bash(./bin/jsrust *)",
 
       "Bash(git status*)",
       "Bash(git diff*)",
@@ -28,6 +30,8 @@
     "deny": [
       "Edit(/spec/**)",
       "Edit(/tests/**)",
+      "Edit(/Cargo.toml)",
+      "Edit(/Cargo.lock)",
       "Edit(/README.md)",
       "Edit(/CLAUDE.md)",
       "Edit(/.gitignore)",
@@ -104,8 +108,8 @@
         "~/.cache/go-build"
       ],
       "denyWrite": [
-        "/home/clemencon/Development/jscheme/.git/hooks",
-        "/home/clemencon/Development/jscheme/.git/config"
+        "/home/clemencon/Development/jzig/.git/hooks",
+        "/home/clemencon/Development/jzig/.git/config"
       ],
       "denyRead": [
         "/usr/bin/node",

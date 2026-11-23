@@ -4,9 +4,9 @@
 
 | Command                  | Behaviour                                                    |
 | ------------------------ | ------------------------------------------------------------ |
-| `jscheme`                | Start the REPL on stdin.                                     |
-| `jscheme <file.js>`      | Evaluate a file. |
-| `jscheme -e <source>`    | Evaluate `<source>`.              |
+| `jsrust`                | Start the REPL on stdin.                                     |
+| `jsrust <file.js>`      | Evaluate a file. |
+| `jsrust -e <source>`    | Evaluate `<source>`.              |
 
 ## Exit codes
 
@@ -32,7 +32,7 @@ The global object has one host-provided function in addition to the spec's built
 
 ## REPL
 
-`jscheme` with no arguments reads from stdin:
+`jsrust` with no arguments reads from stdin:
 
 - The prompt `>` is shown **only when stdin is a TTY** (piped input, as used by the tests, sees no prompt).
 - All inputs are evaluated in **one shared global environment**.

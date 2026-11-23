@@ -1,5 +1,5 @@
 [tools]
-chezscheme = "latest"
+rust = "latest"
 go = "latest"
 rumdl = "latest"
 
@@ -8,32 +8,33 @@ rumdl = "latest"
 disable_tools = ["node", "bun", "deno", "pnpm"]
 
 [tasks.build]
-description = "Build bin/jscheme from src/"
-run = "sh {{config_root}}/src/build.sh"
+description = "Build bin/jsrust from src/"
+dir = "{{config_root}}"
+run = "cargo build --release --offline && install -D target/release/jsrust bin/jsrust"
 
 [tasks.test]
-description = "Run the conformance suite against bin/jscheme"
+description = "Run the conformance suite against bin/jsrust"
 depends = ["build"]
 dir = "{{config_root}}/tests"
 run = "go test -count=1 ./..."
-env = { JSCHEME_BIN = "{{config_root}}/bin/jscheme" }
+env = { JSRUST_BIN = "{{config_root}}/bin/jsrust" }
 
 [tasks."test:verbose"]
-description = "Run the conformance suite against bin/jscheme, showing each test's result"
+description = "Run the conformance suite against bin/jsrust, showing each test's result"
 depends = ["build"]
 dir = "{{config_root}}/tests"
 run = "go test -count=1 -v ./..."
-env = { JSCHEME_BIN = "{{config_root}}/bin/jscheme" }
+env = { JSRUST_BIN = "{{config_root}}/bin/jsrust" }
 
 [tasks."test:stub"]
 description = "Stub gate: every leaf test must fail against a binary that prints nothing and exits 0"
 dir = "{{config_root}}/tests"
 run = "go test -count=1 -json . | go run ./internal/stubgate"
-env = { JSCHEME_BIN = "{{config_root}}/tests/testdata/stub" }
+env = { JSRUST_BIN = "{{config_root}}/tests/testdata/stub" }
 
 [tasks.coverage]
 description = "Coverage gate: list the spec sections no test names"
 dir = "{{config_root}}/tests"
 # Every row that runs counts, pass or fail, so the stub binary is enough.
 run = "go test -count=1 -json . | go run ./internal/coverage"
-env = { JSCHEME_BIN = "{{config_root}}/tests/testdata/stub" }
+env = { JSRUST_BIN = "{{config_root}}/tests/testdata/stub" }

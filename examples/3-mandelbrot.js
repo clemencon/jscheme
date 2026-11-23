@@ -1,5 +1,5 @@
 // The Mandelbrot set, drawn in ASCII.
-// Run: bin/jscheme examples/3-mandelbrot.js
+// Run: bin/jsrust examples/3-mandelbrot.js
 //
 // For each character cell we pick a point c in the complex plane and iterate z = z*z + c from z = 0.
 // Points whose z stays bounded belong to the set (drawn '@'); the others are shaded by how fast z escapes.

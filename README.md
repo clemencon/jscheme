@@ -1,6 +1,6 @@
-# JScheme
+# JSrust
 
-An **interpreter for JavaScript** as defined by [ECMA-262, 1st edition](/spec/ECMA-262_1st_edition_june_1997.pdf), implemented in [Scheme](https://en.wikipedia.org/wiki/History_of_the_Scheme_programming_language).
+An **interpreter for JavaScript** as defined by [ECMA-262, 1st edition](/spec/ECMA-262_1st_edition_june_1997.pdf), implemented in [Rust](https://www.rust-lang.org/).
 
 How it is built:
 
@@ -20,31 +20,31 @@ How it is built:
 ## Usage
 
 ```sh
-jscheme              # Start the REPL on stdin.
-jscheme <file.js>    # Evaluate a file.
-jscheme -e <source>  # Evaluate `<source>`.
+jsrust              # Start the REPL on stdin.
+jsrust <file.js>    # Evaluate a file.
+jsrust -e <source>  # Evaluate `<source>`.
 ```
 
 ## Getting started
 
-Requires [mise](https://mise.jdx.dev/), which provides Scheme and Go.
+Requires [mise](https://mise.jdx.dev/), which provides Rust and Go.
 No JavaScript runtime is part of the toolchain.
 
 ```sh
 mise install         # Install pinned tool versions.
-mise run build       # Build bin/jscheme from src/.
-mise run test        # Build, then run go test against bin/jscheme.
+mise run build       # Build bin/jsrust from src/.
+mise run test        # Build, then run go test against bin/jsrust.
 ```
 
 ## Examples
 
-The programs in [`examples/`](examples/) run on the JScheme interpreter as is.
+The programs in [`examples/`](examples/) run on the JSrust interpreter as is.
 Build first with `mise run build`.
 
 ### Factorial
 
 ```sh
-./bin/jscheme examples/1-factorial.js
+./bin/jsrust examples/1-factorial.js
 ```
 
 ```text
@@ -71,7 +71,7 @@ Build first with `mise run build`.
 ### Fibonacci
 
 ```sh
-./bin/jscheme examples/2-fibonacci.js
+./bin/jsrust examples/2-fibonacci.js
 ```
 
 ```text
@@ -83,7 +83,7 @@ iterative : fib(78)    = 8944394323791464
 ### Mandelbrot set (ASCII)
 
 ```sh
-bin/jscheme examples/3-mandelbrot.js
+bin/jsrust examples/3-mandelbrot.js
 ```
 
 ```text
@@ -128,7 +128,7 @@ bin/jscheme examples/3-mandelbrot.js
 ### Mandelbrot set (colour)
 
 ```sh
-./bin/jscheme examples/4-mandelbrot-color.js
+./bin/jsrust examples/4-mandelbrot-color.js
 ```
 
 ![Mandelbrot set rendered in 24-bit colour](examples/screenshots/mandelbrot.png)
@@ -138,7 +138,7 @@ Needs a true-colour terminal.
 ### Donut (colour)
 
 ```sh
-./bin/jscheme examples/5-donut-color.js
+./bin/jsrust examples/5-donut-color.js
 ```
 
 ![Spinning iced donut with sprinkles](examples/screenshots/donut.gif)
@@ -151,6 +151,7 @@ Needs a true-colour terminal.
 | --------------------- | ------------------------------------------------- | ------------------------------ |
 | `spec/`               | Spec PDF (canonical) + markdown, host contract | Humans |
 | `tests/`              | `go test` suite | Humans |
+| `Cargo.toml`          | Crate manifest (no dependencies)                  | Humans |
 | `src/`                | Interpreter implementation                    | Agent |
 
 ## Host contract

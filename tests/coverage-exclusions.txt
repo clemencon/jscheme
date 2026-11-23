@@ -42,7 +42,7 @@
 5.1.4 The syntactic grammar: grammar notation; the grammar itself is tested under §11-§14
 5.1.5 Grammar Notation: grammar notation
 5.2 Algorithm conventions: notation for the algorithms, tested through the algorithms that use it
-10.2.4 Implementation-supplied Code: the jscheme host creates no implementation-supplied functions (spec/host-contract.md); print is a host function with no ECMAScript code
+10.2.4 Implementation-supplied Code: the jsrust host creates no implementation-supplied functions (spec/host-contract.md); print is a host function with no ECMAScript code
 15.9.3.6 new Date(year, month): "The behavior of the Date constructor with two arguments is implementation dependent", and spec/host-contract.md does not pin it down, so nothing can be asserted
 15.9.4.8 Date.UTC(year, month): "The behavior of the UTC function with two arguments is implementation dependent", not pinned down by spec/host-contract.md
 15.9.4.9 Date.UTC(year): "The behavior of the UTC function with one argument is implementation dependent", not pinned down by spec/host-contract.md

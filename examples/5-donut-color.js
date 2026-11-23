@@ -1,5 +1,5 @@
 // A spinning, iced and sprinkled donut in 24-bit colour.
-// Run: bin/jscheme examples/5-donut-color.js   (needs a true-colour terminal)
+// Run: bin/jsrust examples/5-donut-color.js   (needs a true-colour terminal)
 //
 // The donut is a torus:
 // a circle of radius R1 (the tube) swept around an axis at distance R2.

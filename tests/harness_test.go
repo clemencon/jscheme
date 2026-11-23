@@ -1,4 +1,4 @@
-// Package tests is the jscheme conformance suite for ECMA-262, 1st edition.
+// Package tests is the jsrust conformance suite for ECMA-262, 1st edition.
 //
 // Every test runs the interpreter as a separate process and observes only
 // what the host contract exposes: stdout, the exit code, and whether stderr
@@ -25,8 +25,8 @@ import (
 	"time"
 )
 
-// envBin names the binary under test. Default: ../bin/jscheme.
-const envBin = "JSCHEME_BIN"
+// envBin names the binary under test. Default: ../bin/jsrust.
+const envBin = "JSRUST_BIN"
 
 // timeout bounds every run of the binary. A hang fails the test.
 const timeout = 10 * time.Second
@@ -70,20 +70,20 @@ func readConfig() (config, error) {
 	var c config
 	path := os.Getenv(envBin)
 	if path == "" {
-		path = filepath.Join("..", "bin", "jscheme")
+		path = filepath.Join("..", "bin", "jsrust")
 	}
 	abs, err := filepath.Abs(path)
 	if err != nil {
 		return c, err
 	}
 	if info, err := os.Stat(abs); err != nil || info.IsDir() || info.Mode()&0o111 == 0 {
-		return c, fmt.Errorf("%s is not an executable file (set %s, or build bin/jscheme)", abs, envBin)
+		return c, fmt.Errorf("%s is not an executable file (set %s, or build bin/jsrust)", abs, envBin)
 	}
 	c.bin = abs
 
 	// PATH holds a single empty directory, so no program can be found by
 	// name: in particular no JavaScript runtime.
-	c.pathDir, err = os.MkdirTemp("", "jscheme-path-")
+	c.pathDir, err = os.MkdirTemp("", "jsrust-path-")
 	if err != nil {
 		return c, err
 	}
@@ -222,21 +222,21 @@ func sortedLines(s string) []string {
 
 // Host-contract helpers. Only host_contract_test.go uses them.
 
-// runFile runs `jscheme testdata/<name>` and checks the outcome.
+// runFile runs `jsrust testdata/<name>` and checks the outcome.
 func runFile(tb testing.TB, name string, want outcome) {
 	tb.Helper()
 	path := filepath.Join("testdata", name)
 	checkOutcome(tb, "file: "+path, run(tb, "", path), want)
 }
 
-// runRepl runs `jscheme` with no arguments and input piped to stdin, and
+// runRepl runs `jsrust` with no arguments and input piped to stdin, and
 // checks the outcome.
 func runRepl(tb testing.TB, input string, want outcome) {
 	tb.Helper()
 	checkOutcome(tb, fmt.Sprintf("REPL input: %q", input), run(tb, input), want)
 }
 
-// expectUsageError runs `jscheme args...` and asserts exit code 3, an empty
+// expectUsageError runs `jsrust args...` and asserts exit code 3, an empty
 // stdout and a non-empty stderr.
 func expectUsageError(tb testing.TB, args ...string) {
 	tb.Helper()

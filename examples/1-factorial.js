@@ -1,5 +1,5 @@
 // Factorial, recursively and iteratively.
-// Run: bin/jscheme examples/1-factorial.js
+// Run: bin/jsrust examples/1-factorial.js
 
 // n! for a non-negative integer n.
 function factorial(n) {

@@ -2,7 +2,7 @@ package tests
 
 import "testing"
 
-// Tests of the host contract (README.md, "Host contract"): how jscheme is
+// Tests of the host contract (README.md, "Host contract"): how jsrust is
 // invoked, its exit codes, the print function and the REPL. Row names start
 // with "host:" and the README subsection instead of a spec section number.
 
@@ -12,11 +12,11 @@ func TestHostInvocation(t *testing.T) {
 		name string
 		act  func(testing.TB)
 	}{
-		// "jscheme -e <source>: Evaluate <source> as an ECMAScript Program."
+		// "jsrust -e <source>: Evaluate <source> as an ECMAScript Program."
 		{"host:Invocation -e evaluates its argument as a Program", func(t testing.TB) {
 			expectOutput(t, `print("a"); print("b")`, "a\nb\n")
 		}},
-		// "jscheme <file.js>: Read the file and evaluate it exactly like -e with its contents."
+		// "jsrust <file.js>: Read the file and evaluate it exactly like -e with its contents."
 		{"host:Invocation a file is read and evaluated as a Program", func(t testing.TB) {
 			runFile(t, "hello.js", outcome{exit: 0, stdout: "hello world\n"})
 		}},
@@ -28,7 +28,7 @@ func TestHostInvocation(t *testing.T) {
 		{"host:Invocation a file stops at its first runtime error", func(t testing.TB) {
 			runFile(t, "runtime-error.js", outcome{exit: 1, stdout: "before\n", stderrNotEmpty: true})
 		}},
-		// "jscheme: Start the REPL on stdin."
+		// "jsrust: Start the REPL on stdin."
 		{"host:Invocation with no arguments the REPL reads stdin", func(t testing.TB) {
 			runRepl(t, "print(\"from stdin\")\n", outcome{exit: 0, stdout: "from stdin\n"})
 		}},

@@ -22,13 +22,13 @@ import (
 	"regexp"
 	"strings"
 
-	"jscheme/tests/internal/testjson"
+	"jsrust/tests/internal/testjson"
 )
 
 func main() {
 	specPath := flag.String("spec", "../spec/ECMA-262_1st_edition_june_1997.md", "Markdown spec")
 	exclPath := flag.String("exclusions", "coverage-exclusions.txt", "sections excluded from coverage")
-	pkg := flag.String("package", "jscheme/tests", "import path of the conformance suite")
+	pkg := flag.String("package", "jsrust/tests", "import path of the conformance suite")
 	flag.Parse()
 
 	spec, err := os.Open(*specPath)

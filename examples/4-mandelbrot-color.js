@@ -1,5 +1,5 @@
 // The Mandelbrot set in 24-bit colour, with smooth shading.
-// Run: bin/jscheme examples/4-mandelbrot-color.js   (needs a true-colour terminal)
+// Run: bin/jsrust examples/4-mandelbrot-color.js   (needs a true-colour terminal)
 //
 // Like 3-mandelbrot.js, but:
 //  - each character cell holds two pixels, using the upper half block
